@@ -66,25 +66,7 @@ interface GalleryItem {
 }
 
 const galleryItems: GalleryItem[] = [
-  // Bridal
-  { id: 1, img: bridal1, category: "Bridal", title: "Traditional Bridal Glow" },
-  { id: 2, img: bridal2, category: "Bridal", title: "Modern Reception Elegance" },
-  { id: 3, img: bridal3, category: "Bridal", title: "Christian Trousseau Makeover" },
-  { id: 4, img: bridal4, category: "Bridal", title: "Signature Wedding Glow" },
-  { id: 5, img: bridal5, category: "Bridal", title: "Royal Mehndhi Radiance" },
-  { id: 6, img: bridal6, category: "Bridal", title: "Exquisite South Indian Bride" },
-  { id: 7, img: bridal7, category: "Bridal", title: "Haldi Ceremony Warmth" },
-  { id: 8, img: bridal8, category: "Bridal", title: "Golden Bridal Glamour" },
-  { id: 9, img: bridal9, category: "Bridal", title: "Pre-Wedding Facial Sparkle" },
-  { id: 10, img: bridal10, category: "Bridal", title: "Elegant Hair Styling & Draping" },
-  { id: 11, img: bridal11, category: "Bridal", title: "Classic Red Veil Elegance" },
-  { id: 12, img: bridal12, category: "Bridal", title: "Stunning Muhurtham Portrait" },
-  { id: 13, img: bridal13, category: "Bridal", title: "Premium Saree Draping Artistry" },
-  { id: 14, img: bridal14, category: "Bridal", title: "HD Outdoor Bridal Makeup" },
-  { id: 15, img: bridalHero, category: "Bridal", title: "K&K2 Bridal Signature Look" },
-  { id: 16, img: bridalHero1, category: "Bridal", title: "Timeless Bridal Grace" },
-
-  // Haircare
+  // Haircare — shown first in "All" view
   { id: 17, img: haircareModel, category: "Haircare", title: "Luxury Blonde Highlights" },
   { id: 18, img: haircareModel1, category: "Haircare", title: "Precision Layer Cut" },
   { id: 19, img: haircareModel2, category: "Haircare", title: "Botanical Hair Botox" },
@@ -104,6 +86,24 @@ const galleryItems: GalleryItem[] = [
   { id: 33, img: reel1, category: "Haircare", title: "Stunning Blonde Makeover" },
   { id: 34, img: reel3, category: "Haircare", title: "Wella Color Radiance" },
   { id: 35, img: reel4, category: "Haircare", title: "Premium Volume Curls" },
+
+  // Bridal
+  { id: 1, img: bridal1, category: "Bridal", title: "Traditional Bridal Glow" },
+  { id: 2, img: bridal2, category: "Bridal", title: "Modern Reception Elegance" },
+  { id: 3, img: bridal3, category: "Bridal", title: "Christian Trousseau Makeover" },
+  { id: 4, img: bridal4, category: "Bridal", title: "Signature Wedding Glow" },
+  { id: 5, img: bridal5, category: "Bridal", title: "Royal Mehndhi Radiance" },
+  { id: 6, img: bridal6, category: "Bridal", title: "Exquisite South Indian Bride" },
+  { id: 7, img: bridal7, category: "Bridal", title: "Haldi Ceremony Warmth" },
+  { id: 8, img: bridal8, category: "Bridal", title: "Golden Bridal Glamour" },
+  { id: 9, img: bridal9, category: "Bridal", title: "Pre-Wedding Facial Sparkle" },
+  { id: 10, img: bridal10, category: "Bridal", title: "Elegant Hair Styling & Draping" },
+  { id: 11, img: bridal11, category: "Bridal", title: "Classic Red Veil Elegance" },
+  { id: 12, img: bridal12, category: "Bridal", title: "Stunning Muhurtham Portrait" },
+  { id: 13, img: bridal13, category: "Bridal", title: "Premium Saree Draping Artistry" },
+  { id: 14, img: bridal14, category: "Bridal", title: "HD Outdoor Bridal Makeup" },
+  { id: 15, img: bridalHero, category: "Bridal", title: "K&K2 Bridal Signature Look" },
+  { id: 16, img: bridalHero1, category: "Bridal", title: "Timeless Bridal Grace" },
 
   // Skincare
   { id: 36, img: skincareModel, category: "Skincare", title: "Hydrating Facial Treatment" },

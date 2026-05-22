@@ -2,9 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Sparkles, Crown, Heart, Star } from "lucide-react";
 import { waLink } from "@/lib/whatsapp";
 import bridalHero from "@/assets/bridal-hero.jpg";
+import mobile_banner from "@/assets/mobile_banner.jpg";
 import b1 from "@/assets/bridal-1.jpg";
 import b2 from "@/assets/bridal-2.jpg";
 import b3 from "@/assets/bridal-3.jpg";
+import b15 from "@/assets/bridal-15.jpeg";
 
 export const Route = createFileRoute("/bridal")({
   head: () => ({
@@ -32,18 +34,48 @@ const testimonials = [
 function BridalPage() {
   return (
     <>
+      {/* ── HERO BANNER – mobile-fixed ── */}
       <section className="relative overflow-hidden">
-        <img src={bridalHero} alt="K2 Bridal Studio" className="w-full h-[60vh] md:h-[80vh] object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-foreground/70 via-foreground/30 to-transparent" />
+        {/*
+          picture element: on mobile we use bridal-hero1 (portrait crop),
+          on md+ we use the original wide bridal-hero.
+          Both are sized to 55vh on mobile and 80vh on desktop.
+        */}
+        <picture>
+          {/* Mobile: portrait-optimized image */}
+          <source media="(max-width: 767px)" srcSet={mobile_banner} />
+          {/* Desktop: full bridal-hero.jpg shown in its entirety */}
+          <img
+            src={bridalHero}
+            alt="K2 Bridal Studio"
+            className="w-full h-auto block"
+          />
+        </picture>
+
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-foreground/75 via-foreground/40 to-transparent" />
+
+        {/* Content */}
         <div className="absolute inset-0 flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="max-w-xl text-background animate-fade-up">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-card/20 backdrop-blur border border-white/30 text-xs tracking-[0.3em] uppercase font-semibold mb-5">
-                <Sparkles className="w-3.5 h-3.5 text-accent" /> K&K2 Bridal Studio
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-card/20 backdrop-blur border border-white/30 text-[10px] tracking-[0.2em] uppercase font-semibold mb-3">
+                <Sparkles className="w-3 h-3 text-accent" /> K&K2 Bridal Studio
               </div>
-              <h1 className="text-4xl md:text-6xl font-bold leading-tight">For the bride who deserves <span className="text-accent">forever</span></h1>
-              <p className="mt-5 text-base md:text-lg text-background/90">From the first trial to the final touch-up — we'll be by your side for every moment of your beautiful day.</p>
-              <a href={waLink("I want to book a bridal consultation")} target="_blank" rel="noreferrer" className="btn-rose mt-7">Book Bridal Consultation</a>
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight">
+                For the bride who<br className="sm:hidden" /> deserves <span className="text-accent">forever</span>
+              </h1>
+              <p className="mt-4 text-sm sm:text-base md:text-lg text-background/90">
+                From the first trial to the final touch-up — we'll be by your side for every moment of your beautiful day.
+              </p>
+              <a
+                href={waLink("I want to book a bridal consultation")}
+                target="_blank"
+                rel="noreferrer"
+                className="btn-rose mt-6 inline-flex"
+              >
+                Book Bridal Consultation
+              </a>
             </div>
           </div>
         </div>
@@ -91,7 +123,7 @@ function BridalPage() {
         </div>
       </section>
 
-      {/* Pre-wedding */}
+      {/* Pre-wedding — image now points to bridal-15 */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 grid md:grid-cols-2 gap-10 items-center">
         <div>
           <div className="text-xs tracking-[0.3em] uppercase text-accent font-semibold mb-3">Pre-Wedding Rituals</div>
@@ -104,7 +136,7 @@ function BridalPage() {
           </ul>
           <a href={waLink("I want to book Pre-Wedding ritual")} target="_blank" rel="noreferrer" className="btn-rose mt-7">Start Pre-Wedding Plan</a>
         </div>
-        <img src={b3} alt="Pre wedding" loading="lazy" className="rounded-[2rem] shadow-elegant w-full h-[520px] object-cover" />
+        <img src={b15} alt="Pre wedding glow" loading="lazy" className="rounded-[2rem] shadow-elegant w-full h-[520px] object-cover" />
       </section>
 
       {/* Testimonials */}

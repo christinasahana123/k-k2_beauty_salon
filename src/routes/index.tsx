@@ -13,6 +13,9 @@ import bodycare from "@/assets/bodycare-model.jpg";
 import bridal1 from "@/assets/bridal-1.jpg";
 import bridal2 from "@/assets/bridal-2.jpg";
 import bridal3 from "@/assets/bridal-3.jpg";
+import bridal6 from "@/assets/bridal-6.jpeg";
+import bridal10 from "@/assets/bridal-10.jpeg";
+import bridal11 from "@/assets/bridal-11.jpeg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -368,11 +371,15 @@ function Index() {
             <p className="mt-4 text-muted-foreground">Signature bridal looks crafted with timeless grace and modern glamour.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {[bridal1, bridal2, bridal3].map((b, i) => (
+            {[
+              { img: bridal6, label: "South Indian Elegance" },
+              { img: bridal10, label: "Hair Styling & Draping" },
+              { img: bridal11, label: "Classic Red Veil Look" },
+            ].map((b, i) => (
               <div key={i} className="relative group overflow-hidden rounded-[1.5rem] luxe-card">
-                <img src={b} alt={`Bridal work ${i + 1}`} loading="lazy" className="w-full h-[420px] object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img src={b.img} alt={`Bridal work ${i + 1}`} loading="lazy" className="w-full h-[420px] object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground/85 to-transparent p-5">
-                  <div className="text-primary-foreground font-semibold">{["Traditional South", "Christian Elegance", "Reception Glam"][i]}</div>
+                  <div className="text-primary-foreground font-semibold">{b.label}</div>
                 </div>
               </div>
             ))}
