@@ -110,7 +110,7 @@ function AboutPage() {
           {/* Social Links */}
           <div className="flex flex-col sm:flex-row justify-center gap-5 mb-14">
             <a
-              href="https://www.instagram.com/kk2beautysalon"
+              href="https://www.instagram.com/k2beauty_salon_/"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-semibold text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
@@ -124,7 +124,7 @@ function AboutPage() {
               Follow on Instagram
             </a>
             <a
-              href="https://www.facebook.com/kk2beautysalon"
+              href="https://www.facebook.com/beauty.salon.k2/"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-semibold text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"

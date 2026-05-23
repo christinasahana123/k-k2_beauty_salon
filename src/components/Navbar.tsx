@@ -3,6 +3,12 @@ import { Link } from "@tanstack/react-router";
 import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "@/assets/logo.png";
 
+const branchReviewUrls = {
+  Adyar: "https://search.google.com/local/writereview?placeid=ChIJzYV6zcJnUjoRXaImcAn3JGU",
+  "Besant Nagar": "https://search.google.com/local/writereview?placeid=ChIJf78qo4pnUjoRI2qw-o2GEF8",
+  Nungambakkam: "https://search.google.com/local/writereview?placeid=ChIJFdvrnmhmUjoRDYxt-1IG7Jk",
+};
+
 const navLinks = [
   { label: "Salon Location", to: "/locations" as const },
   { label: "Price", to: "/pricing" as const },
@@ -20,6 +26,7 @@ const services = [
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [mobileServices, setMobileServices] = useState(false);
+  const [mobileFeedback, setMobileFeedback] = useState(false);
 
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/85 border-b border-border">
@@ -57,6 +64,27 @@ export function Navbar() {
               {l.label}
             </Link>
           ))}
+          {/* Feedback Dropdown */}
+          <div className="relative group">
+            <button className="flex items-center gap-1 text-sm font-medium text-foreground hover:text-primary transition-colors py-2 cursor-pointer">
+              Feedback <ChevronDown className="w-4 h-4" />
+            </button>
+            <div className="absolute right-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-[180px]">
+              <div className="luxe-card p-2 bg-card">
+                {Object.entries(branchReviewUrls).map(([branch, url]) => (
+                  <a
+                    key={branch}
+                    href={url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block px-4 py-2.5 rounded-lg text-sm text-foreground hover:bg-secondary hover:text-primary transition-colors font-medium"
+                  >
+                    {branch}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
         </nav>
 
         <button
@@ -97,6 +125,32 @@ export function Navbar() {
                 {l.label}
               </Link>
             ))}
+            {/* Feedback Mobile Menu */}
+            <div>
+              <button
+                onClick={() => setMobileFeedback(!mobileFeedback)}
+                className="w-full flex items-center justify-between px-3 py-3 rounded-lg text-foreground hover:bg-secondary"
+              >
+                <span className="font-medium">Feedback</span>
+                <ChevronDown className={`w-4 h-4 transition-transform ${mobileFeedback ? "rotate-180" : ""}`} />
+              </button>
+              {mobileFeedback && (
+                <div className="pl-6 space-y-1">
+                  {Object.entries(branchReviewUrls).map(([branch, url]) => (
+                    <a
+                      key={branch}
+                      href={url}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={() => setOpen(false)}
+                      className="block px-3 py-2 rounded-lg text-sm text-muted-foreground hover:text-primary font-medium"
+                    >
+                      {branch}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}

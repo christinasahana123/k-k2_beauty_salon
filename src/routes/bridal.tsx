@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Sparkles, Crown, Heart, Star } from "lucide-react";
 import { waLink } from "@/lib/whatsapp";
@@ -32,6 +33,15 @@ const testimonials = [
 ];
 
 function BridalPage() {
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % 3);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <>
       {/* ── HERO BANNER – mobile-fixed ── */}
@@ -115,10 +125,43 @@ function BridalPage() {
             <div className="text-xs tracking-[0.3em] uppercase text-accent font-semibold mb-3">Makeup Gallery</div>
             <h2 className="text-3xl md:text-5xl font-bold">Brides we've made glow</h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+
+          {/* Desktop Grid View */}
+          <div className="hidden md:grid md:grid-cols-3 gap-6">
             {[b1, b2, b3].map((src, i) => (
               <img key={i} src={src} alt={`Bridal ${i + 1}`} loading="lazy" className="rounded-[1.5rem] shadow-elegant w-full h-[460px] object-cover hover:scale-[1.02] transition-transform duration-500" />
             ))}
+          </div>
+
+          {/* Mobile Auto-Slideshow (every 5 seconds) */}
+          <div className="md:hidden relative h-[400px] w-full overflow-hidden rounded-[1.5rem] shadow-elegant">
+            {[b1, b2, b3].map((src, i) => (
+              <div
+                key={i}
+                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                  activeSlide === i ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+                }`}
+              >
+                <img
+                  src={src}
+                  alt={`Bridal mobile ${i + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+            {/* Elegant Dots indicators */}
+            <div className="absolute bottom-4 left-0 right-0 z-20 flex justify-center gap-2">
+              {[0, 1, 2].map((i) => (
+                <button
+                  key={i}
+                  onClick={() => setActiveSlide(i)}
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                    activeSlide === i ? "bg-[#B8893A] w-6" : "bg-white/50"
+                  }`}
+                  aria-label={`Go to slide ${i + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>

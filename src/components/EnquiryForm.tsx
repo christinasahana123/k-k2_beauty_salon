@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { toast } from "sonner";
-import { Mail, Phone, Calendar, Sparkles, Send, CheckCircle2 } from "lucide-react";
+import { Mail, Phone, Calendar, Sparkles, Send, CheckCircle2, ChevronDown } from "lucide-react";
 
 export function EnquiryForm() {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
-    email: "",
+    location: "Adyar",
     service: "Hair Styling",
     message: "",
   });
@@ -35,7 +35,7 @@ export function EnquiryForm() {
           from_name: "K&K2 Beauty Salon",
           Name: formData.name,
           Phone: formData.phone,
-          Email: formData.email,
+          "Preferred Location": formData.location,
           "Requested Service": formData.service,
           Message: formData.message,
         }),
@@ -46,7 +46,7 @@ export function EnquiryForm() {
         toast.success("Enquiry sent successfully! We'll get back to you soon.", {
           duration: 5000,
         });
-        setFormData({ name: "", phone: "", email: "", service: "Hair Styling", message: "" });
+        setFormData({ name: "", phone: "", location: "Adyar", service: "Hair Styling", message: "" });
       } else {
         throw new Error("Failed to submit");
       }
@@ -163,17 +163,24 @@ export function EnquiryForm() {
 
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div className="space-y-2">
-                    <label className="text-xs uppercase tracking-widest text-[#FFF8F2]/70 font-semibold" htmlFor="email">
-                      Email Address
+                    <label className="text-xs uppercase tracking-widest text-[#FFF8F2]/70 font-semibold" htmlFor="location">
+                      Preferred Location *
                     </label>
-                    <input
-                      type="email"
-                      id="email"
-                      placeholder="e.g. priya@gmail.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-[#FFF8F2]/5 rounded-xl border border-white/10 hover:border-[#D4AF7F]/50 focus:border-[#D4AF7F] focus:outline-none p-3.5 text-sm text-white placeholder-white/30 transition-all font-body"
-                    />
+                    <div className="relative">
+                      <select
+                        id="location"
+                        value={formData.location}
+                        onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                        className="w-full bg-[#261816] rounded-xl border border-white/10 hover:border-[#D4AF7F]/50 focus:border-[#D4AF7F] focus:outline-none p-3.5 text-sm text-white placeholder-white/30 transition-all font-body appearance-none cursor-pointer"
+                      >
+                        <option value="Adyar">Adyar</option>
+                        <option value="Nungambakkam">Nungambakkam</option>
+                        <option value="Besant Nagar">Besant Nagar</option>
+                      </select>
+                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[#D4AF7F]">
+                        <ChevronDown className="w-4 h-4" />
+                      </div>
+                    </div>
                   </div>
                   
                   <div className="space-y-2">

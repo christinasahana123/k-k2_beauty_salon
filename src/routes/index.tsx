@@ -59,56 +59,37 @@ function Index() {
 
   return (
     <>
-      {/* OFFER BANNER */}
-      <section className="relative overflow-hidden">
-        <div className="bg-gradient-rose text-primary-foreground">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 md:py-4 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-center">
-            <span className="inline-flex items-center gap-2 text-xs md:text-sm font-semibold tracking-[0.2em] uppercase">
-              <Gift className="w-4 h-4" /> Limited Time Offer
-            </span>
-            <span className="hidden sm:inline-block opacity-50">•</span>
-            <span className="text-sm md:text-base font-medium">
-              Flat <span className="font-bold">30% OFF</span> on your first luxury experience at K&K2 Beauty Salon
-            </span>
-            <a
-              href={waLink("I want to claim the 30% OFF offer")}
-              target="_blank"
-              rel="noreferrer"
-              className="ml-0 sm:ml-2 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white text-primary text-xs font-bold hover:bg-[color:var(--secondary)] transition-colors"
-            >
-              Book Now →
-            </a>
-          </div>
-        </div>
-      </section>
+
 
       {/* HERO BANNER */}
-      <section className="relative w-full overflow-hidden" style={{ minHeight: "520px", maxHeight: "92vh" }}>
-        {/* Banner Image */}
-        <img
-          src={heroBanner}
-          alt="K&K2 Beauty Salon – Luxury Hair & Beauty"
-          className="absolute inset-0 w-full h-full object-cover object-center"
-          style={{ minHeight: "520px" }}
-        />
-
-        {/* Dark gradient overlay – left heavy like reference image */}
-        <div className="absolute inset-0" style={{
-          background: "linear-gradient(100deg, rgba(20,10,8,0.88) 0%, rgba(30,15,10,0.70) 38%, rgba(30,15,10,0.25) 65%, rgba(0,0,0,0.05) 100%)"
-        }} />
+      <section className="relative w-full flex flex-col md:block bg-[#3B2A28] overflow-hidden" style={{ minHeight: "auto", maxHeight: "none" }}>
+        {/* Banner Image Container - relative on mobile, absolute on desktop */}
+        <div className="relative w-full h-[320px] sm:h-[400px] md:absolute md:inset-0 md:h-full">
+          <img
+            src={heroBanner}
+            alt="K&K2 Beauty Salon – Luxury Hair & Beauty"
+            className="w-full h-full object-cover object-center"
+          />
+          {/* Dark gradient overlay – desktop only */}
+          <div className="hidden md:block absolute inset-0" style={{
+            background: "linear-gradient(100deg, rgba(20,10,8,0.88) 0%, rgba(30,15,10,0.70) 38%, rgba(30,15,10,0.25) 65%, rgba(0,0,0,0.05) 100%)"
+          }} />
+          {/* Subtle mobile overlay to blend top/bottom */}
+          <div className="md:hidden absolute inset-0 bg-gradient-to-t from-[#3B2A28] via-[#201210]/20 to-transparent" />
+        </div>
 
         {/* Vertical hours strip – right side, desktop only */}
         <div className="hidden lg:flex absolute right-0 top-0 bottom-0 w-12 items-center justify-center"
-          style={{ background: "rgba(184,137,58,0.18)", backdropFilter: "blur(4px)", borderLeft: "1px solid rgba(184,137,58,0.3)" }}>
+          style={{ background: "rgba(184,137,58,0.18)", backdropFilter: "blur(4px)", borderLeft: "1px solid rgba(184,137,58,0.3)", zIndex: 10 }}>
           <span className="text-white/80 text-[10px] font-semibold tracking-[0.2em] uppercase"
             style={{ writingMode: "vertical-rl", transform: "rotate(180deg)", letterSpacing: "0.22em" }}>
             MON – SAT: 10:00 AM – 8:00 PM &nbsp;·&nbsp; SUN: 11:00 AM – 7:00 PM
           </span>
         </div>
 
-        {/* Content */}
-        <div className="relative h-full flex items-center" style={{ minHeight: "520px", maxHeight: "92vh" }}>
-          <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-20 md:py-28 lg:py-32">
+        {/* Content - stacked below the image on mobile, positioned absolute overlay on desktop */}
+        <div className="relative z-10 w-full flex items-center bg-[#3B2A28] md:bg-transparent py-12 md:py-28 lg:py-32 md:min-h-[580px] lg:min-h-[640px]">
+          <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
             <div className="max-w-xl animate-fade-up">
 
               {/* Eyebrow label */}
@@ -194,8 +175,8 @@ function Index() {
           </div>
         </div>
 
-        {/* Bottom gradient fade into next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
+        {/* Bottom gradient fade into next section – desktop only */}
+        <div className="hidden md:block absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
           style={{ background: "linear-gradient(to top, #3B2A28 0%, transparent 100%)" }} />
       </section>
 

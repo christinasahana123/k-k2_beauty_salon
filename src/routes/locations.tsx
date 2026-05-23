@@ -16,8 +16,9 @@ export const Route = createFileRoute("/locations")({
 const locations = [
   {
     name: "Besant Nagar",
+    placeId: "ChIJf78qo4pnUjoRI2qw-o2GEF8",
     address: "K&K2 Beauty Salon, 1st Floor, No 61, B/5, MG Rd, opposite to bus stop, Vannandhurai, Besant Nagar, Chennai – 600090",
-    map: "https://maps.google.com/maps?width=600&height=400&hl=en&q=1st%20Floor%2C%20No%2061%2C%20B%2F5%2C%20MG%20Rd%2C%20opposite%20to%20bus%20stop%2C%20Vannandhurai%2C%20Besant%20Nagar%2C%20Chennai%20%E2%80%93%20600090.&t=&z=14&ie=UTF8&iwloc=B&output=embed",
+    map: "https://maps.google.com/maps?q=K%26K2%20Beauty%20Salon%20Besant%20Nagar&t=&z=14&ie=UTF8&iwloc=B&output=embed",
     hours: [
       "Mon - Sat: 10:00 AM - 8:00 PM",
       "Sunday: 11:00 AM - 7:00 PM"
@@ -26,8 +27,9 @@ const locations = [
   },
   {
     name: "Adyar",
-    address: "Arcade, 21, Basement, Nathans, Malavia Ave, Chennai, Tamil Nadu – 600041",
-    map: "https://maps.google.com/maps?width=600&height=400&hl=en&q=k%26k2%20adyar&t=&z=14&ie=UTF8&iwloc=B&output=embed",
+    placeId: "ChIJzYV6zcJnUjoRXaImcAn3JGU",
+    address: "K&K2 Beauty Salon, Arcade, 21, Basement, Nathans, Malavia Ave, Adyar, Chennai, Tamil Nadu – 600041",
+    map: "https://maps.google.com/maps?q=K%26K2%20Beauty%20Salon%20Adyar&t=&z=14&ie=UTF8&iwloc=B&output=embed",
     hours: [
       "Mon - Sat: 10:00 AM - 8:00 PM",
       "Sunday: 11:00 AM - 7:00 PM"
@@ -36,8 +38,9 @@ const locations = [
   },
   {
     name: "Nungambakkam",
-    address: "New #23, Old #26, Noor Veerasamy Ln, behind Police Station Perumal Kovil, opposite Mangadu Samy Street, Ponnangipuram, Nungambakkam, Chennai, Tamil Nadu – 600034",
-    map: "https://maps.google.com/maps?width=600&height=400&hl=en&q=k%26k2%20nugambakkam&t=&z=14&ie=UTF8&iwloc=B&output=embed",
+    placeId: "ChIJFdvrnmhmUjoRDYxt-1IG7Jk",
+    address: "K&K2 Beauty Salon, New #23, Old #26, Noor Veerasamy Ln, behind Police Station Perumal Kovil, opposite Mangadu Samy Street, Ponnangipuram, Nungambakkam, Chennai, Tamil Nadu – 600034",
+    map: "https://maps.google.com/maps?q=K%26K2%20Beauty%20Salon%20Nungambakkam&t=&z=14&ie=UTF8&iwloc=B&output=embed",
     hours: [
       "Mon - Sat: 10:00 AM - 8:00 PM",
       "Sunday: 11:00 AM - 7:00 PM"
@@ -124,7 +127,7 @@ function LocationsPage() {
                     Book Appointment
                   </a>
                   <a 
-                    href={`https://www.google.com/maps?q=${encodeURIComponent(loc.address)}`} 
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("K&K2 Beauty Salon " + loc.name + " Chennai")}&query_place_id=${loc.placeId}`} 
                     target="_blank" 
                     rel="noreferrer" 
                     className="col-span-2 flex items-center justify-center gap-1.5 border border-border hover:bg-muted text-muted-foreground rounded-lg py-2 text-xs font-medium transition-all duration-300"
