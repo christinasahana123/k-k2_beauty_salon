@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Navbar } from "./Navbar";
+import { Link } from "@tanstack/react-router";
 import { Footer } from "./Footer";
 import { WhatsAppFloat } from "./WhatsAppFloat";
 import { EnquiryForm } from "./EnquiryForm";
@@ -22,11 +23,13 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
       <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white">
         {/* Zoom in/out logo */}
         <div className="flex flex-col items-center">
-          <img
-            src={logo}
-            alt="K&K2 Beauty Salon"
-            className="h-20 sm:h-24 w-auto object-contain animate-zoom-pulse"
-          />
+          <Link to="/">
+            <img
+              src={logo}
+              alt="K&K2 Beauty Salon"
+              className="h-20 sm:h-24 w-auto object-contain animate-zoom-pulse"
+            />
+          </Link>
         </div>
       </div>
     );

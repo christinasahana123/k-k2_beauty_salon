@@ -83,9 +83,9 @@ const galleryItems: GalleryItem[] = [
   { id: 30, img: haircareModel13, category: "Haircare", title: "Premium Hair Wash & Blow Dry" },
   { id: 31, img: haircareModel14, category: "Haircare", title: "Wella Koleston Color Transformation" },
   { id: 32, img: blog2, category: "Haircare", title: "Hydra-Nourishing Scalp Spa" },
-  { id: 33, img: reel1, category: "Haircare", title: "Stunning Blonde Makeover" },
-  { id: 34, img: reel3, category: "Haircare", title: "Wella Color Radiance" },
-  { id: 35, img: reel4, category: "Haircare", title: "Premium Volume Curls" },
+  
+
+
 
   // Bridal
   { id: 1, img: bridal1, category: "Bridal", title: "Traditional Bridal Glow" },
@@ -103,7 +103,7 @@ const galleryItems: GalleryItem[] = [
   { id: 13, img: bridal13, category: "Bridal", title: "Premium Saree Draping Artistry" },
   { id: 14, img: bridal14, category: "Bridal", title: "HD Outdoor Bridal Makeup" },
   { id: 15, img: bridalHero, category: "Bridal", title: "K&K2 Bridal Signature Look" },
-  { id: 16, img: bridalHero1, category: "Bridal", title: "Timeless Bridal Grace" },
+
 
   // Skincare
   { id: 36, img: skincareModel, category: "Skincare", title: "Hydrating Facial Treatment" },

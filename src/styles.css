@@ -244,11 +244,14 @@
   }
   .animate-scroll-up { animation: scroll-up 18s linear infinite; }
 
-  @keyframes float-soft {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
-  .animate-float { animation: float-soft 3s ease-in-out infinite; }
+  @keyframes zoom-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+.animate-zoom-pulse {
+  animation: zoom-pulse 1s ease-in-out infinite;
+}
 
   @keyframes fade-up {
     from { opacity: 0; transform: translateY(20px); }
@@ -266,17 +269,8 @@
   .animate-gentle-shake {
     animation: gentle-shake 1.5s ease-in-out infinite;
   }
-
-  @keyframes zoom-pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.12); }
-  }
-  .animate-zoom-pulse {
-    animation: zoom-pulse 1.8s ease-in-out infinite;
-  }
 }
 
-/* Hide layer-base body duplicate from old block */
-@layer base {
-  html { scroll-behavior: smooth; }
-}
+
+
+
