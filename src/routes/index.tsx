@@ -5,7 +5,8 @@ import { Sparkles, Gift, Star, Scissors, Sparkle, Hand, Heart, MapPin, Award, Cl
 import { waLink } from "@/lib/whatsapp";
 import { FaqSection } from "@/components/FaqSection";
 import { GallerySection } from "@/components/GallerySection";
-import heroBanner from "@/assets/hero-banner.png";
+import webBanner from "@/assets/web_banner.jpg";
+import mobBanner from "@/assets/mob_banner.jpg";
 
 import haircare from "@/assets/haircare-model.jpg";
 import skincare from "@/assets/skincare-model.jpg";
@@ -62,127 +63,20 @@ function Index() {
 
 
       {/* HERO BANNER */}
-      <section className="relative w-full flex flex-col md:block bg-[#3B2A28] overflow-hidden" style={{ minHeight: "auto", maxHeight: "none" }}>
-        {/* Banner Image Container - relative on mobile, absolute on desktop */}
-        <div className="relative w-full h-[320px] sm:h-[400px] md:absolute md:inset-0 md:h-full">
+      <section className="relative w-full overflow-hidden bg-[#3B2A28]">
+        <picture>
+          <source media="(max-width: 767px)" srcSet={mobBanner} />
           <img
-            src={heroBanner}
+            src={webBanner}
             alt="K&K2 Beauty Salon – Luxury Hair & Beauty"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-auto block"
           />
-          {/* Dark gradient overlay – desktop only */}
-          <div className="hidden md:block absolute inset-0" style={{
-            background: "linear-gradient(100deg, rgba(20,10,8,0.88) 0%, rgba(30,15,10,0.70) 38%, rgba(30,15,10,0.25) 65%, rgba(0,0,0,0.05) 100%)"
-          }} />
-          {/* Subtle mobile overlay to blend top/bottom */}
-          <div className="md:hidden absolute inset-0 bg-gradient-to-t from-[#3B2A28] via-[#201210]/20 to-transparent" />
-        </div>
-
-        {/* Vertical hours strip – right side, desktop only */}
-        <div className="hidden lg:flex absolute right-0 top-0 bottom-0 w-12 items-center justify-center"
-          style={{ background: "rgba(184,137,58,0.18)", backdropFilter: "blur(4px)", borderLeft: "1px solid rgba(184,137,58,0.3)", zIndex: 10 }}>
-          <span className="text-white/80 text-[10px] font-semibold tracking-[0.2em] uppercase"
-            style={{ writingMode: "vertical-rl", transform: "rotate(180deg)", letterSpacing: "0.22em" }}>
-            MON – SAT: 10:00 AM – 8:00 PM &nbsp;·&nbsp; SUN: 11:00 AM – 7:00 PM
-          </span>
-        </div>
-
-        {/* Content - stacked below the image on mobile, positioned absolute overlay on desktop */}
-        <div className="relative z-10 w-full flex items-center bg-[#3B2A28] md:bg-transparent py-12 md:py-28 lg:py-32 md:min-h-[580px] lg:min-h-[640px]">
-          <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
-            <div className="max-w-xl animate-fade-up">
-
-              {/* Eyebrow label */}
-              <div className="inline-flex items-center gap-2 mb-5">
-                <span className="block w-8 h-px" style={{ background: "#B8893A" }} />
-                <span className="text-xs tracking-[0.35em] uppercase font-semibold" style={{ color: "#D4AF7F" }}>
-                  27+ Years of Excellence
-                </span>
-              </div>
-
-              {/* Main heading */}
-              <h1 className="font-display font-normal leading-[1.08] mb-5"
-                style={{
-                  fontSize: "clamp(2.6rem, 6vw, 5rem)",
-                  color: "#FFFFFF",
-                  letterSpacing: "-0.01em",
-                  textShadow: "0 2px 24px rgba(0,0,0,0.4)"
-                }}>
-                Beauty &amp; <br className="hidden sm:block" />
-                <span style={{ color: "#D4AF7F" }}>Hair Salon</span>
-              </h1>
-
-              {/* Subtitle */}
-              <p className="text-sm sm:text-base md:text-lg mb-8 max-w-sm"
-                style={{
-                  color: "rgba(255,255,255,0.75)",
-                  letterSpacing: "0.08em",
-                  textTransform: "uppercase",
-                  fontFamily: "var(--font-body)",
-                  fontWeight: 400
-                }}>
-                Change your look with our talented stylists
-              </p>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-wrap gap-4 items-center">
-                <a
-                  href={waLink("I want to book a service")}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 px-7 py-3 text-sm font-semibold tracking-[0.12em] uppercase transition-all duration-300"
-                  style={{
-                    background: "#B8893A",
-                    color: "#fff",
-                    border: "none",
-                    letterSpacing: "0.12em"
-                  }}
-                  onMouseEnter={e => (e.currentTarget.style.background = "#8A6428")}
-                  onMouseLeave={e => (e.currentTarget.style.background = "#B8893A")}
-                >
-                  → &nbsp; Book a Service
-                </a>
-                <Link
-                  to="/pricing"
-                  className="inline-flex items-center gap-2 px-7 py-3 text-sm font-semibold tracking-[0.12em] uppercase transition-all duration-300"
-                  style={{
-                    background: "transparent",
-                    color: "#fff",
-                    border: "1px solid rgba(255,255,255,0.45)",
-                    letterSpacing: "0.12em"
-                  }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = "#B8893A"; (e.currentTarget as HTMLElement).style.color = "#D4AF7F"; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.45)"; (e.currentTarget as HTMLElement).style.color = "#fff"; }}
-                >
-                  Our Pricing
-                </Link>
-              </div>
-
-              {/* Stats row */}
-              <div className="mt-10 flex flex-wrap gap-8">
-                {[
-                  { value: "27+", label: "Years Experience" },
-                  { value: "3", label: "Boutique Salons" },
-                  { value: "2000+", label: "Happy Clients" },
-                ].map(s => (
-                  <div key={s.label}>
-                    <div className="font-display text-2xl font-semibold" style={{ color: "#D4AF7F" }}>{s.value}</div>
-                    <div className="text-xs tracking-widest uppercase mt-0.5" style={{ color: "rgba(255,255,255,0.55)" }}>{s.label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom gradient fade into next section – desktop only */}
-        <div className="hidden md:block absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
-          style={{ background: "linear-gradient(to top, #3B2A28 0%, transparent 100%)" }} />
+        </picture>
       </section>
 
       {/* HIGHLIGHT STRIP / WHY CHOOSE US */}
-      <section className="relative w-full bg-[#3B2A28] pt-12 md:pt-20 overflow-hidden">
-        <div className="relative bg-white rounded-t-[3.5rem] md:rounded-t-[6rem] px-6 sm:px-12 lg:px-20 py-16 md:py-24 border-t border-border/30">
+      <section className="relative w-full bg-white overflow-hidden">
+        <div className="relative bg-white px-6 sm:px-12 lg:px-20 py-16 md:py-24 border-t border-border/30">
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-center">
             {/* Left Column - Uncompromised Quality */}
             <div className="flex flex-col justify-center animate-fade-up">
